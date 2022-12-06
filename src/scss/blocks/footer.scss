@@ -1,0 +1,65 @@
+@use '../mixins/responsive.scss' as*;
+@use '../mixins/flexbox.scss' as*;
+@use '../functions/image.scss' as*;
+@use '../mixins/pseudo.scss' as*;
+
+.footer{
+padding: 4rem 0;
+background-image:image('bg-pattern-footer-mobile.svg');
+background-size: contain;
+background-repeat: no-repeat;
+background-color: var(--secondary-color);
+@include responsive (laptop){
+    background-image:image('bg-pattern-footer-desktop.svg');
+    background-size: 50%;
+    padding: 2rem 0;
+   
+    
+}
+    &__top{
+     @include flexbox(flex,column,nowrap,center,center);
+     margin-bottom: 5rem;
+     @include responsive (laptop){
+        @include flexbox(flex,row,nowrap,space-between,center);
+        width: 80%;
+        margin-left: 16%
+    }
+    }
+     &__lists{
+        @include responsive(laptop){
+
+        
+        @include flexbox(flex,row,nowrap,center,start);
+        gap: 150px;
+        text-align: left;
+         }
+        }
+
+    &__list{
+        margin-bottom: 3rem;
+
+        &-link{
+            font-family: 'Karla', serif;
+        font-size: 1.2rem;
+        font-weight: 700;
+        line-height: 1.8rem;
+        &:hover{
+            border-bottom: 1px solid var(--primary-color);
+        }
+        }
+    }
+}
+
+.socials{
+    @include flexbox(flex,row,nowrap,center,center);
+    padding: 2rem;
+    &__icon{
+        font-size: 1.5rem;
+        padding: 0 0.5rem;
+        color: var(--gray-text);
+        &:hover{
+           color: var(--primary-color);
+        }
+    }
+    
+}

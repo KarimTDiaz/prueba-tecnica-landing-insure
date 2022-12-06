@@ -1,0 +1,60 @@
+@use '../mixins/responsive.scss' as*;
+@use '../mixins/flexbox.scss' as*;
+@use '../mixins/pseudo.scss' as*;
+@use '../functions/image.scss' as*;
+
+.section-with-list{
+    position: relative;
+    &::after{
+        @include pseudo(170px,0.5px){
+            background-color: var(--gray-text);
+            bottom:105%;
+            left: 35%
+        }
+    }
+    @include responsive(laptop){
+        text-align: start;
+            width: 85%;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 4rem;
+            &::after{
+                bottom: 110%;
+                left: 0;
+            }
+    }
+}
+.icon-list{
+    padding: 2rem;
+    &__item{
+        @include flexbox(flex,column,nowrap,center,center);
+        margin-bottom: 2rem;
+        @include responsive(laptop){
+            align-items: start;
+        }
+    }
+        
+    @include responsive(laptop){
+        @include flexbox(flex,row,nowrap,center,center);
+        gap: 30px;
+        padding: 0;
+    }
+}
+.card{
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 8rem;
+    padding: 2rem 0 5rem;
+    background-color: var(--primary-color);
+    background-image: image('bg-pattern-how-we-work-mobile.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: top right;
+    @include responsive(laptop){
+        @include flexbox(flex,row,nowrap,space-between,center);
+        width: 85%;
+        padding: 0 3rem;
+        background-image: image('bg-pattern-how-we-work-desktop.svg');
+    }
+}

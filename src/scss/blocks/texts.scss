@@ -1,0 +1,15 @@
+@use '../mixins/responsive.scss' as*;
+a{
+    font-family: 'Karla', serif;
+}
+
+.text{
+    font-family: 'Karla', serif;
+    line-height: 1.8rem;
+    font-weight: 400;
+    color: var(--gray-text);
+    &--white{
+        color: var(--white-text);
+    }
+
+}
